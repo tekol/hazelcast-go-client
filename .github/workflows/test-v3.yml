@@ -18,7 +18,9 @@ jobs:
         working-directory: "${{ env.GOPATH }}/src/github.com/${{ github.repository }}"
     steps:
       - name: "Install Dependencies"
-        run: "sudo apt update && sudo apt install -y openjdk-8-jdk-headless maven"
+        run: |
+          sudo apt-get update &&\
+          sudo apt-get install -y openjdk-8-jdk-headless maven
 
       - name: "Download and Start Hazelcast Remote Controller"
         run: "bash ./start-rc.sh &"
